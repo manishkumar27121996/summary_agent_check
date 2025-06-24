@@ -33,7 +33,7 @@ async def initialize_agent():
     if agent is None:
         mcp_tools = MCPTools(
             "npx -y mongodb-mcp-server --connectionString 'mongodb+srv://krmaan20010:manish123@cluster0.nolvbco.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'",
-            timeout_seconds=30
+            timeout_seconds=90
         )
         await mcp_tools.__aenter__()
         
