@@ -141,4 +141,4 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
     # Set your Anthropic API key: export ANTHROPIC_API_KEY=***
-    uvicorn.run("postman_testing:app", host="0.0.0.0", port=8001)
+    uvicorn.run("postman_testing:app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
