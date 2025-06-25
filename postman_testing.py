@@ -8,6 +8,7 @@ from agno.agent import Agent
 from agno.tools.mcp import MCPTools
 from agno.models.aws import Claude
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
