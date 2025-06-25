@@ -101,7 +101,13 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust to specific origins in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
     """
@@ -141,4 +147,4 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
     # Set your Anthropic API key: export ANTHROPIC_API_KEY=***
-    uvicorn.run("postman_testing:app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
+    uvicorn.run("postman_testing:app", host="0.0.0.0", port=8005)
